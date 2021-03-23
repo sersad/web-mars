@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Галерея с загрузкой</h1>
+    <form action="" method="post" novalidate enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.csrf_token }}
+        </div>
+            {% for file in pictures %}
+                <img src="{{ url_for('static', filename='img/'+file) }}"></img>
+                {{file}}
+
+            {% endfor %}
+
+        <p>
+            {{ form.image_data.label }}<br>
+            {{ form.image_data(class="form-control", type="file") }}<br>
+            {% for error in form.image_data.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </form>
+
+
+{% endblock %}

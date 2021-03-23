@@ -1,0 +1,9 @@
+Flask~=1.1.2
+Werkzeug~=1.0.1
+SQLAlchemy
+SQLAlchemy-serializer
+requests
+flask-wtf
+flask-login
+flask-restful
+alembic

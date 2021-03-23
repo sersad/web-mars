@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {%  set user = members['members']|random  %}
+    <div align="center">
+        <img src="{{ url_for('static', filename='img/'+user.photo) }}">
+        <p>
+            {{user.name}} {{ user.surname }}
+        </p>
+        {%  for prof in user.prof %}
+
+                <p>{{prof}}<p>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
