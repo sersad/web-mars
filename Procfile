@@ -1,1 +1,1 @@
-web: python flask-sqlalchemy-intro.py
+web: python main.py
