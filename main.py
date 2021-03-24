@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template
 from flask_login import LoginManager
 
@@ -42,10 +44,11 @@ def index():
 
 
 def main():
-    db_session.global_init("db/mars_explorer.db")
-    db_sess = db_session.create_session()
+    # db_session.global_init("db/mars_explorer.db")
+    # db_sess = db_session.create_session()
 
-    app.run(port="8080", host="0.0.0.0")
+    port = int(os.environ.get('PORT', 5000))
+    app.run(port=port, host="0.0.0.0")
 
 
 if __name__ == '__main__':
