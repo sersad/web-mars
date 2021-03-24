@@ -1,5 +1,7 @@
 import os
 
+from waitress import serve
+
 from flask import Flask, render_template
 from flask_login import LoginManager
 
@@ -48,7 +50,10 @@ def main():
     db_sess = db_session.create_session()
 
     port = int(os.environ.get('PORT', 5000))
-    app.run(port=port, host="0.0.0.0")
+    # app.run(port=port, host="0.0.0.0")
+
+    # с дефаултными значениями будет не более 4 потов
+    serve(app, port=port, host="0.0.0.0")
 
 
 if __name__ == '__main__':

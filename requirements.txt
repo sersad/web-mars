@@ -8,3 +8,4 @@ flask-login
 flask-restful
 alembic
 flask-ngrok
+waitress
